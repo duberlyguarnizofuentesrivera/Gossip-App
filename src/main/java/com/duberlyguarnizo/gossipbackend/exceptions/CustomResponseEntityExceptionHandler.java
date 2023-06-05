@@ -38,10 +38,28 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
     public ProblemDetail handleAccessDeniedException(Exception e, WebRequest request) {
         ProblemDetail pd = ProblemDetail.forStatus(HttpStatusCode.valueOf(403));
         pd.setTitle("Access denied");
-        pd.setDetail("You doo not have the permissions to use request this resource.");
+        pd.setDetail("You do not have the permissions to use request this resource.");
         //TODO: add more custom properties to be managed by frontend and the remaining exceptions related to credentials
         return pd;
     }
+
+    @ExceptionHandler(NonExistentEntityException.class)
+    public ProblemDetail handleNonExistingResourceException(Exception e,  WebRequest request){
+        ProblemDetail pd = ProblemDetail.forStatus(HttpStatusCode.valueOf(404));
+        pd.setTitle("Resource not found");
+        pd.setDetail(e.getMessage());
+        //TODO: add more custom properties to be managed by frontend and the remaining exceptions related to credentials
+        return pd;
+    }
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ProblemDetail handleIllegalArgumentException(Exception e,  WebRequest request){
+        ProblemDetail pd = ProblemDetail.forStatus(HttpStatusCode.valueOf(400));
+        pd.setTitle("Wrong argument");
+        pd.setDetail(e.getMessage());
+        //TODO: add more custom properties to be managed by frontend and the remaining exceptions related to credentials
+        return pd;
+    }
+
 
     //TODO: add org.springframework.security.access.AccessDeniedException
 }

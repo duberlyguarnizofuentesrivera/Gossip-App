@@ -1,4 +1,4 @@
-package com.duberlyguarnizo.gossipbackend.supervision;
+package com.duberlyguarnizo.gossipbackend.supervision.service;
 
 import org.springframework.stereotype.Service;
 

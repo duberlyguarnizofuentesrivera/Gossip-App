@@ -1,4 +1,4 @@
-package com.duberlyguarnizo.gossipbackend.supervision;
+package com.duberlyguarnizo.gossipbackend.supervision.models;
 
 import com.duberlyguarnizo.gossipbackend.auditing.AuditableEntity;
 import jakarta.persistence.Entity;

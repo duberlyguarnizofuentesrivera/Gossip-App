@@ -2,7 +2,6 @@ package com.duberlyguarnizo.gossipbackend.client;
 
 import com.duberlyguarnizo.gossipbackend.auditing.AuditableEntity;
 import com.duberlyguarnizo.gossipbackend.gossip.Gossip;
-import com.duberlyguarnizo.gossipbackend.location.Location;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -26,5 +25,4 @@ public class Client extends AuditableEntity {
      */
     boolean active;
     int strikes;
-
 }
